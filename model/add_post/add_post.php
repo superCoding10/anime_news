@@ -26,10 +26,10 @@ if($_POST) {
     }
 
     if(strlen(file_get_contents("latest.txt")) === 0) {
-        file_put_contents("latest.txt", json_encode($json_feed));
+        file_put_contents("mixed.txt", json_encode($json_feed));
 
     } else {
-        file_put_contents("latest.txt", "\n, " . json_encode($json_feed) , FILE_APPEND);
+        file_put_contents("mixed.txt", "\n, " . json_encode($json_feed) , FILE_APPEND);
 
     }
        

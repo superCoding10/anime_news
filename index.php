@@ -14,7 +14,9 @@
     include_once "partials/header.php";
     include_once "partials/footer.php";
     include_once "partials/nav.php";
-    
+    // A STRINGIFIED RANDOM NEWS SEPARATED BY A | WHERE FIRST PART IS TITLE SECOND IS DESCRIPTION AND THIRD IOS IMG NAME
+    include_once "get_news/get_random_news.php";
+    $decoded_rand_news = array_combine(["title", "description", "img_name"], explode("|", $stringified_rand_news));
 ?>
     <div class="wrapper">
 
@@ -33,17 +35,17 @@
         <h3>Random news</h3>  
             <div class="card">
                 <!-- CURR IMG -->
-                <img id="card_curr_img" src="/user_images/current_img.jpg" alt="random_news_img" style="height: 175px;transition: all 1s;">
+                <img id="card_curr_img" src="/model/add_post/images/<?= $decoded_rand_news["img_name"];?>" alt="random_news_img" style="height: 175px;transition: all 1s;">
                 <!-- NEW IMG -->
-                <img id="card_new_img" src="/user_images/1.jpg" style="position: absolute;height: 175px;transition: all 1s;opacity: 0;" alt="random_news_img">
+                <img id="card_new_img" src="" style="position: absolute;height: 175px;transition: all 1s;opacity: 0;" alt="random_news_img">
 
                 <div class="card_text_content">
                 <!-- CURR HEADER -->
-                    <p style="transition: all 1s;" id="card_curr_header"  class="card_header text-center">asd asd sadsad asd sad sadsad sad sa d</p>
+                    <p style="transition: all 1s;padding:0 5px;" id="card_curr_header"  class="card_header text-center"><?= $decoded_rand_news["title"];?></p>
                 <!-- NEW HEADER -->
-                    <p id="card_new_header" style="position: absolute;opacity: 0;padding: 0 7px; width: 284px;top: 175px;transition: all 1s;" class="card_header text-center">Using this kind of material will lead you to...</p>
+                    <p id="card_new_header" style="position: absolute;opacity: 0;padding: 0 7px; width: 284px;top: 175px;transition: all 1s;" class="card_header text-center"></p>
 
-                    <p class="card_body">asd asd sadsad asd sad sadsad sad sa dasd asd sad asd sad asd sad asd asd ...</p>
+                    <p class="card_body" style="word-break: break-all;"><?= $decoded_rand_news["description"];?>...</p>
                 </div>
                 <button type="button" class="btn btn-outline-info read_news_btn">Read</button>
             </div>
