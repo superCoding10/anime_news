@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 some data
+=======
+some data 2
+>>>>>>> hotfix
