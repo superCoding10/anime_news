@@ -9,10 +9,5 @@ try {
 } catch (PDOException $e) {
     //throw $th;
     echo "failed: ";
- 
-
     echo $e->getMessage();
 }
-
-
-
