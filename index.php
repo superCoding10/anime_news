@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
     <script src="js/index.js" defer></script>
+    <!-- <script type='text/javascript' src="s.php?cb=callback" ></script> -->
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
     include_once "partials/nav.html";
 
     // GET ALL NEWS AND DECODE THEM INTO A SIMPLE ARRAY
-    $all_news = json_decode( "[" . file_get_contents("model/add_post/mixed.txt") . "]", true);
+    $all_news = json_decode( "[" . file_get_contents("db/add_post/mixed.txt") . "]", true);
     // GENERATE A RANDOM NUMBER TO GET A RANDOM NEWS
     $rand_num = rand(0, count($all_news) - 1);
     // GET A RANDON NEWS
@@ -29,7 +30,7 @@
         </div>
 
         <div class="search_news_wrapper">
-            <input type="checkbox" placeholder="Search news..." checked>
+            <input type="text" placeholder="Search news...">
             <button class="btn btn-outline-info">Search</button>
         </div>
 
@@ -51,7 +52,7 @@
                     </svg>
               
                     <!-- CURR IMG -->
-                    <img id="card_curr_img" class="news_card_img" src="/model/add_post/images/<?= $rand_news["img_name"];?>" alt="random_news_img" style="cursor: pointer;height: 175px;z-index:213213;transition: all 1s;">
+                    <img id="card_curr_img" class="news_card_img" src="/db/add_post/images/<?= $rand_news["img_name"];?>" alt="random_news_img" style="cursor: pointer;height: 175px;z-index:213213;transition: all 1s;">
                     <!-- NEW IMG -->
                     <img class="news_card_img" id="card_new_img" src="" style="z-index:213123;top: 0;position: absolute;height: 175px;transition: all 1s;opacity: 0;cursor: pointer;" alt="random_news_img">
                 </div>
@@ -59,20 +60,18 @@
                 <!-- CURR HEADER -->
                     <p style="transition: all 1s;padding:0 5px;margin-bottom: 20px;" id="card_curr_header"  class="card_header text-center"><?= $rand_news["title"];?></p>
                 <!-- NEW HEADER -->
-                    <p id="card_new_header" style="position: absolute;opacity: 0;padding: 0 7px; width: 284px;top: 175px;transition: all 1s;" class="card_header text-center"></p>
+                    <p id="card_new_header" style="position: absolute;padding: 0 7px; width: 284px;top: 175px;transition: all 1s;" class="card_header text-center zeroOpacity"></p>
 
 
                     <!-- CURR DESCRIPTION -->
                     <p id="card_curr_description" class="card_body" style="transition: all 1s;word-break: break-all;"><?= $decoded_rand_news["description"];?>.asd asd asdasd asd asd asd asd asd asd asd..</p>
                     <!-- NEW DESCRIPTION -->
-                    <!-- <p id="card_new_description" class="card_body" style="word-break: break-all;"><?= $decoded_rand_news["description"];?>.asd asd asdasd asd asd asd asd asd asd asd..</p> -->
+                    <p id="card_new_description" class="card_body zeroOpacity" style="word-break: break-all;"><?= $decoded_rand_news["description"];?>.asd asd asdasd asd asd asd asd asd asd asd..</p>
                 </div>
                 <button type="button" class="btn btn-outline-info read_news_btn">Read</button>
             </div>
         </div>
 
 </div>
-
-
 
 <?php include_once "partials/footer.html";?>

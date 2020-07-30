@@ -87,6 +87,7 @@
 .read_news_btn {
     margin: 5px !important;
     font-size: 23px !important;
+    position: relative;
 }
 
 
@@ -119,4 +120,16 @@
 
 .next_news_arrow:hover {
     color: #35b6dd  !important;
+}
+
+.toggleOpacity {
+    opacity: 1 !important;
+}
+
+.zeroOpacity {
+    opacity: 0 !important;
+}
+
+.oneOpacity {
+    opacity: 1 !important;
 }
