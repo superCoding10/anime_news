@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
     <script src="js/index.js" defer></script>
-    <!-- <script type='text/javascript' src="s.php?cb=callback" ></script> -->
     <title>Document</title>
 </head>
 <body>
@@ -73,5 +72,9 @@
         </div>
 
 </div>
+<?php 
+// namespace Api;
+// const a = 33
 
+?>
 <?php include_once "partials/footer.html";?>
