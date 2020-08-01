@@ -1,0 +1,5 @@
+~~~~~~~~~~~~~~~~~~~
+HEADERS
+~~~~~~~~~~~~~~~~~~~
+
+- Note that each browser has a maximum internal value that takes precedence when the Access-Control-Max-Age is greater.

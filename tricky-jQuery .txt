@@ -1,0 +1,3 @@
+			https://api.jquery.com/jquery.ajax/#Advanced Options
+			
+With cross-domain script and JSONP requests, the global option is automatically set to false

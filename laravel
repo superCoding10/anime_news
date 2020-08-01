@@ -1,0 +1,45 @@
+LARAVEL CONF DOCS
+
+- .env.testing will override the .env file when running PHPUnit tests or executing Artisan commands with the --env=testing option.
+
+- Any variable in your .env file can be overridden by external environment variables such as server-level or system-level environment variables.
+
+- If you need to define an environment variable with a value that contains spaces, you may do so by enclosing the value in double quotes.
+
+- 'debug' => env('APP_DEBUG', false) The second value passed to the env function is the "default value". This value will be used if no environment variable exists for the given key.
+
+- If you execute the config:cache command during your deployment process, you should be sure that you are only calling the env function from within your configuration files. Once the configuration has been cached, the .env file will not be loaded and all calls to the env function will return null.
+
+~~~~~~~~~~~~~~~~~~
+MAINTENANCE
+~~~~~~~~~~~~~~~~~~
+
+- You may customize the default maintenance mode template by defining your own template at resources/views/errors/503.blade.php.
+
+- While your application is in maintenance mode, no queued jobs will be handled. The jobs will continue to be handled as normal once the application is out of maintenance mode.
+
+- Since maintenance mode requires your application to have several seconds of downtime, consider alternatives like Envoyer to accomplish zero-downtime deployment with Laravel.
+
+~~~~~~~~~~~~~~~~~~~~~
+- Optional params 
+~~~~~~~~~~~~~~~~~~~~~~
+
+Route::get('user/{name?}', function ($name = null) {
+    return $name;
+});
+
+Route::get('user/{name?}', function ($name = 'John') {
+    return $name;
+});
+
+~~~~~~~~~~~~~~~~~~~~~~`
+Encoded Forward Slashes
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Laravel routing component allows all characters except /. You must explicitly allow / to be part of your placeholder using a where condition regular expression:
+
+Route::get('search/{search}', function ($search) {
+    return $search;
+})->where('search', '.*');
+
+Encoded forward slashes are only supported within the last route segment.

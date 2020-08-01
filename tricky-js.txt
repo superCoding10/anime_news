@@ -1,0 +1,9 @@
+					VOID EXPRESSION	
+void function iife() {
+
+  console.log("Executed!");
+
+}();
+
+// Output: "Executed!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
